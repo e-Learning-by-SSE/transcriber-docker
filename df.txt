@@ -1,0 +1,43 @@
+# Dockerfile für evaluierung der ASR Tools
+
+# Use Python image
+FROM python:3.9-slim
+
+# Arbeitsverzeichnis im Container erstellen
+WORKDIR /usr/src/app
+
+# Installiere Systemabhängigkeiten
+RUN apt-get update && apt-get install -y \
+    ffmpeg \
+    git \
+    && rm -rf /var/lib/apt/lists/*
+
+# Installiere Python-Abhängigkeiten für Whisper und andere Tools
+RUN pip install --no-cache-dir openai-whisper jiwer
+
+# Klone das SeamlessM4T Repository
+RUN git clone https://github.com/facebookresearch/seamless_communication.git /usr/src/app/seamless-m4t
+
+# Wechsle in das geklonte Verzeichnis und installiere das SeamlessM4T
+WORKDIR /usr/src/app/seamless-m4t
+
+# Installiere notwendige Build-Abhängigkeiten für fairseq
+RUN pip install --upgrade pip setuptools cython numpy
+
+# Installiere fairseq2 und fairseq2n in den richtigen Versionen
+RUN pip install fairseq==0.10.2
+
+# Installiere SeamlessM4T über setup.py
+RUN pip install .
+
+# Wechsel zurück ins Arbeitsverzeichnis
+WORKDIR /usr/src/app
+
+# Kopiere die Python- und Bash-Skripte in den Container
+COPY . .
+
+# Mach das Bash-Skript ausführbar
+RUN chmod +x run_asr.sh
+
+# Definiere den Entry Point für das Bash-Skript
+ENTRYPOINT ["./run_asr.sh"]

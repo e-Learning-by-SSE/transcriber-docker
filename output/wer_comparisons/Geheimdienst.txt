@@ -1,0 +1,9 @@
+ASR Modell, Video, WER
+Whisper, Geheimdienst, 14.428571428571429
+Wav2Vec, Geheimdienst, 12.857142857142858
+Whisper, Geheimdienst, 14.428571428571429
+Wav2Vec, Geheimdienst, 12.857142857142858
+Whisper, Geheimdienst, 14.428571428571429
+Wav2Vec, Geheimdienst, 12.857142857142858
+Whisper, Geheimdienst, 14.428571428571429
+Wav2Vec, Geheimdienst, 12.857142857142858

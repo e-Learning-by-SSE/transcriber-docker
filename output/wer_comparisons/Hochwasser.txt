@@ -1,0 +1,9 @@
+ASR Modell, Video, WER
+Whisper, Hochwasser, 0.017316017316017316
+Wav2Vec, Hochwasser, 1.0
+Whisper, Hochwasser, 0.017316017316017316
+Wav2Vec, Hochwasser, 1.0
+Whisper, Hochwasser, 0.017316017316017316
+Wav2Vec, Hochwasser, 1.0
+Whisper, Hochwasser, 0.017316017316017316
+Wav2Vec, Hochwasser, 1.0
