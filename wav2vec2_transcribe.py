@@ -18,11 +18,10 @@ def transcribe_audio_wav2vec2(audio_path, output_path):
     # Verarbeite das Audio für das Modell
     input_values = processor(audio, return_tensors="pt", sampling_rate=16000).input_values
 
-    # Führe die Inferenz durch (ohne Gradienten, um Rechenressourcen zu sparen)
     with torch.no_grad():
         logits = model(input_values).logits
 
-    # Dekodiere die vorhergesagten IDs in Text
+    #
     predicted_ids = torch.argmax(logits, dim=-1)
     transcription = processor.decode(predicted_ids[0])
 

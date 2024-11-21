@@ -53,7 +53,7 @@ for video_file in "$VIDEO_DIR"/*; do
       continue
     fi
 
-    # Run Whisper ASR
+    #Whisper ASR
     echo "Processing $video_file with Whisper..."
     python3 asr_whisper.py "$video_file" "$whisper_output"
     
